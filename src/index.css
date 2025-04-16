@@ -1,13 +1,49 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+.Cabecalho {
+  background-color: #0384b0;
+  display: flex;
+  font-size: 16px;
+  justify-content: center;
+  color: #8de6ff;
+  margin: 10px;
+  }
+  .NovaTarefa {
+  margin: 10px;
+  }
+  .NovaTarefa input {
+  width: 350px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  }
+  .NovaTarefa button {
+  background-color: #269dc4;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  }
+  .ListaTarefas {
+  background-color: #0384b0;
+  color: white;
+  padding: 10px;
+  margin: 10px;
+  }
+  .ListaTarefas button {
+  background-color: #ca2323;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  }
+  .Tarefa {
+  background-color: #269dc4;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px;
+  margin: 5px;
+  }
