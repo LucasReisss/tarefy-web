@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import Cabecalho from './components/Cabecalho';
 
 
 
@@ -27,9 +28,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className='Cabecalho'>
-        <h1>Tarefy</h1>
-      </header>
+      <Cabecalho />
       <div className='NovaTarefa'>
         <input type='text' placeholder='Digite uma nova tarefa' />
         <button type='button' onClick={novaTarefa} >Nova Tarefa</button>
