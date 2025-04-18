@@ -8,11 +8,14 @@
   margin: 10px;
   }
   .NovaTarefa {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   margin: 10px;
   }
 
   .NovaTarefa input {
-  width: 350px;
+    width: 350px;
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -53,4 +56,10 @@
   .NovaTarefa button:hover {
     transform: scale(1.05);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 600px) {
+    .NovaTarefa input {
+      width: 60%;
+    }    
   }
