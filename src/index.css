@@ -10,6 +10,7 @@
   .NovaTarefa {
   margin: 10px;
   }
+
   .NovaTarefa input {
   width: 350px;
   padding: 5px;
@@ -23,6 +24,7 @@
   padding: 5px 10px;
   border-radius: 4px;
   cursor: pointer;
+  transition: 0.2s ease, box-shadow 0.2s ease;
   }
   .ListaTarefas {
   background-color: #0384b0;
@@ -46,4 +48,9 @@
   justify-content: space-between;
   padding: 5px;
   margin: 5px;
+  }
+
+  .NovaTarefa button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
