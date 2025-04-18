@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# Tarefy Web
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto foi desenvolvido como parte de uma pós-graduação, com o objetivo de praticar **React.js** e conceitos de **modularização**, aplicando o princípio de **responsabilidade única** (Single Responsibility Principle). Recentemente, foram implementadas melhorias na experiência do usuário, incluindo **motion design** com a biblioteca [Framer Motion](https://www.framer.com/motion/).
 
-## Available Scripts
+## 🛠️ Tecnologias Utilizadas
 
-In the project directory, you can run:
+- **React.js**: Biblioteca JavaScript para construção de interfaces de usuário.
+- **Framer Motion**: Biblioteca para animações e transições suaves em React.
+- **CSS**: Estilização do projeto.
+- **JavaScript (ES6+)**: Linguagem principal para desenvolvimento.
 
-### `npm start`
+## 🎯 Objetivo do Projeto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+O objetivo principal deste projeto foi:
+- Criar componentes reutilizáveis e modulares.
+- Aplicar o princípio de responsabilidade única em cada componente.
+- Implementar animações para melhorar a experiência do usuário.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Funcionalidades
 
-### `npm test`
+1. **Adicionar Tarefas**: Permite ao usuário adicionar novas tarefas à lista.
+2. **Marcar como Concluído**: O usuário pode marcar tarefas como concluídas.
+3. **Filtrar Tarefas**: As tarefas são exibidas em duas listas separadas:
+    - Tarefas Pendentes
+    - Tarefas Concluídas
+4. **Animações com Framer Motion**:
+    - Transições suaves ao adicionar ou remover tarefas.
+    - Animações de entrada e saída para melhorar a experiência visual.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📂 Estrutura do Projeto
 
-### `npm run build`
+A estrutura do projeto segue uma abordagem modular, com componentes organizados por responsabilidade:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+src/
+├── components/
+│   ├── Cabecalho/       # Componente do cabeçalho
+│   ├── NovaTarefa/      # Formulário para adicionar novas tarefas
+│   ├── ListaTarefas/    # Lista de tarefas (pendentes e concluídas)
+│   ├── Tarefa/          # Componente individual de uma tarefa
+├── App.js               # Componente principal
+├── index.js             # Ponto de entrada do React
+├── App.css              # Estilos globais
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🖼️ Motion Design com Framer Motion
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+O **Framer Motion** foi integrado ao projeto para adicionar animações às listas de tarefas. Aqui estão os principais pontos de implementação:
 
-### `npm run eject`
+- **Entrada e Saída de Tarefas**:
+  Cada tarefa é envolvida em um `motion.div` para aplicar animações de entrada e saída.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```javascript
+<motion.div
+     key={tarefa.id}
+     initial={{ opacity: 0, y: -20 }}
+     animate={{ opacity: 1, y: 0 }}
+     exit={{ opacity: 0, y: 20 }}
+     transition={{ duration: 0.3 }}
+>
+     <Tarefa tarefa={tarefa} {...props} />
+</motion.div>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<AnimatePresence>
+     {tarefasFiltradas.map(tarefa => (
+          <motion.div
+                key={tarefa.id}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.3 }}
+          >
+                <Tarefa tarefa={tarefa} {...props} />
+          </motion.div>
+     ))}
+</AnimatePresence>
+```
