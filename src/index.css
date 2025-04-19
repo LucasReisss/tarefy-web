@@ -36,12 +36,14 @@
   margin: 10px;
   }
   .ListaTarefas button {
-  background-color: #ca2323;
-  color: white;
+  background-color: #208838;
+  color: #FFFFFF;
   border: none;
+  box-shadow: #34d058 0px 0px 5px;
   padding: 5px 10px;
   border-radius: 4px;
   cursor: pointer;
+  transition: 0.2s ease, box-shadow 0.2s ease;
   }
   .Tarefa {
   background-color: #269dc4;
