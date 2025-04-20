@@ -1,5 +1,7 @@
-import { useState } from 'react';
-export default function NovaTarefa({ tarefas, setTarefas }) {
+import { useContext, useState } from 'react';
+import { TarefasContext } from '../../App';
+export default function NovaTarefa() {
+    const [tarefas, setTarefas] = useContext(TarefasContext);
     const [titulo, setTitulo] = useState('');
     function novaTarefa() {
        if(titulo.trim() === "") return;

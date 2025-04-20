@@ -1,4 +1,8 @@
-export default function Tarefa({ tarefa, tarefas, setTarefas }) {
+import { useContext } from "react";
+import { TarefasContext } from "../../App";
+
+export default function Tarefa({ tarefa}) {
+    const [tarefas, setTarefas] = useContext(TarefasContext);
     function concluirTarefa(tarefa) {
         const index = tarefas.findIndex(t => t.id === tarefa.id);
         tarefas[index].completa = true;

@@ -1,28 +1,30 @@
-import { useState } from 'react';
+import { createContext, useState } from 'react';
 import './App.css';
 import Cabecalho from './components/Cabecalho';
 import NovaTarefa from './components/NovaTarefa';
 import ListaTarefas from './components/ListaTarefas';
+import AppContext from './store/AppContext';
 
 
-
+export const TarefasContext = createContext(null);
 function App() {
 
-  const [tarefas, setTarefas] = useState([
-    { id: 1, titulo: 'Estudar React', completa: false },
-    { id: 2, titulo: 'Estudar JavaScript', completa: true },
-  ]);
+  const [tarefas, setTarefas] = useState([]);
 
   return (
     <div className="App">
-      <Cabecalho />
-      <NovaTarefa tarefas={tarefas} setTarefas={setTarefas} />
-      <ListaTarefas titulo="Tarefas Pendentes:" tarefasFiltradas={tarefas.filter(t => !t.completa)}
-      tarefas={tarefas}
-      setTarefas= {setTarefas} />
-      <ListaTarefas titulo="Tarefas Concluídas:" tarefasFiltradas={tarefas.filter(t => t.completa)}
-      tarefas={tarefas} setTarefas={setTarefas} />
-    </div>
+
+
+      <AppContext.Provider value={{ message: "Tarefy" }}>
+        <Cabecalho />
+      </AppContext.Provider>
+
+      <TarefasContext.Provider value={[tarefas, setTarefas]}>
+        <NovaTarefa />
+        <ListaTarefas titulo="Tarefas Pendentes:" tarefasFiltradas={tarefas.filter(t => !t.completa)}/>
+        <ListaTarefas titulo="Tarefas Concluídas:" tarefasFiltradas={tarefas.filter(t => t.completa)}/>
+      </TarefasContext.Provider>
+    </div >
   );
 }
 
