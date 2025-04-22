@@ -1,7 +1,7 @@
 import Tarefa from "../Tarefa";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function ListaTarefas({ titulo, tarefasFiltradas, ...props }) {
+export default function ListaTarefas({ titulo, tarefasFiltradas}) {
     return (
         <div className="ListaTarefas">
             <h2>{titulo}</h2>
@@ -14,7 +14,7 @@ export default function ListaTarefas({ titulo, tarefasFiltradas, ...props }) {
                         exit={{ opacity: 0, y: 20 }}
                         transition={{ duration: 0.3 }}
                     >
-                        <Tarefa key={tarefa.id} tarefa={tarefa} {...props} />
+                        <Tarefa key={tarefa.id} tarefa={tarefa} />
                     </motion.div>
                 ))}
             </AnimatePresence>

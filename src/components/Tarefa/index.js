@@ -2,11 +2,9 @@ import { useContext } from "react";
 import { TarefasContext } from "../../App";
 
 export default function Tarefa({ tarefa}) {
-    const [tarefas, setTarefas] = useContext(TarefasContext);
+    const {dispatch} = useContext(TarefasContext);
     function concluirTarefa(tarefa) {
-        const index = tarefas.findIndex(t => t.id === tarefa.id);
-        tarefas[index].completa = true;
-        setTarefas([...tarefas]);
+        dispatch({type: "CONCLUIR_TAREFA", tarefa});
     }
     return (
 
